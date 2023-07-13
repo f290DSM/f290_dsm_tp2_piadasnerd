@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fatecararas</groupId>
-	<artifactId>piadasnerd</artifactId>
+	<artifactId>f290_dsm_tp2_piadasnerd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>piadasnerd</name>
 	<description>Demo project for Spring Boot</description>

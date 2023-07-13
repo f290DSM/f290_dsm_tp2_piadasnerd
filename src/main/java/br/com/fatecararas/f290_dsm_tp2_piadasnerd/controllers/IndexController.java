@@ -1,4 +1,4 @@
-package br.com.fatecararas.piadasnerd.controllers;
+package br.com.fatecararas.f290_dsm_tp2_piadasnerd.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
