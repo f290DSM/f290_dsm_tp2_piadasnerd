@@ -8,8 +8,14 @@
 </head>
 
 <body>
-    <h1>Hello World!</h1>
-    <div th:text="|A some de 21 + 21 é ${21 + 21}|"></div>
+    <h1 th:text="${titulo}">Hello World!</h1>
+   <div>
+    <ul>
+        <li th:each="comediante : ${comediantes}">
+            <span th:text="${comediante}"></span>
+        </li>
+    </ul>
+   </div>
 </body>
 
 </html>
