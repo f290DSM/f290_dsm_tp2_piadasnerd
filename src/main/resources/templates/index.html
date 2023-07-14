@@ -9,12 +9,11 @@
 
 <body>
     <h1 th:text="${titulo}">Hello World!</h1>
-   <div>
-    <ul>
-        <li th:each="comediante : ${comediantes}">
-            <span th:text="${comediante}"></span>
-        </li>
-    </ul>
+   <div th:each="piada : ${piadas}">
+    <details>
+        <summary th:text="${piada.descricao}"></summary>
+        <p th:text="${piada.resposta}"></p>
+    </details>
    </div>
 </body>
 
