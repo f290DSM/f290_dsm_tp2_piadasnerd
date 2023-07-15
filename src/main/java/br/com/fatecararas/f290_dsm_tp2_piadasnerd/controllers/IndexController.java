@@ -3,6 +3,7 @@ package br.com.fatecararas.f290_dsm_tp2_piadasnerd.controllers;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,10 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.fatecararas.f290_dsm_tp2_piadasnerd.model.Piada;
+import br.com.fatecararas.f290_dsm_tp2_piadasnerd.services.PiadaService;
 
 @Controller
 @RequestMapping("/")
 public class IndexController {
+
+    @Autowired
+    private PiadaService service;
 
     @GetMapping
     public String index(Model model) {
@@ -29,9 +34,7 @@ public class IndexController {
         // TODO: Camada de Serviço com repositório em memória.
         // TODO: Substituir lista manual pela chamada do service.
 
-        List<Piada> piadas = Arrays.asList(new Piada("O que o C++ disse para o C?", "Você não tem classe!", true),
-                new Piada("O que o C:/DarthVader disse para C:/DarthVader/Luke?", "Luke, I am your folder!", true),
-                new Piada("Sarah Connor e T-1000 viajam no tempo para evitar o Apocalipse. - Agora que chegamos á base da Skynet, como sabotamos o mainframe?", "- Instala Vista, baby", true));
+        List<Piada> piadas = service.buscarTodas();
 
         model.addAttribute("piadas", piadas);
         System.out.println("Passou pelo IndexController...");
