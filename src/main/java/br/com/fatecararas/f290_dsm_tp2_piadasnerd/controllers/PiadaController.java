@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,9 +56,21 @@ public class PiadaController {
         return "/piadas/criar";
     }
 
+    @PostMapping("/buscar")
+    public String busca(@ModelAttribute Piada piada, Model model) {
+        List<Piada> piadas = service.buscar(piada.getDescricao());
+        model.addAttribute("piadas", piadas);
+        return "piadas";
+    }
+
     @ModelAttribute(name = "piadas")
     public List<Piada> getPiadas() {
         return service.buscarTodas();
+    }
+
+    @ModelAttribute(name = "piada")
+    public Piada getPiada() {
+        return new Piada();
     }
 
 }

@@ -1,5 +1,6 @@
 package br.com.fatecararas.f290_dsm_tp2_piadasnerd.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -57,5 +58,15 @@ public class PiadaService {
 
         repository.save(novaPiada);
 
+    }
+
+    public List<Piada> buscar(String termo) {
+        List<Piada> piadas = repository.findByDescricao(termo);
+
+        if (piadas.isEmpty()) {
+            throw new RuntimeException(String.format("Termo não localizado(s): %s", termo));
+        }
+
+        return piadas;
     }
 }
