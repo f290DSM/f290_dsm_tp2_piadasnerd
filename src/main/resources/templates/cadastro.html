@@ -6,10 +6,11 @@
     <title>Cadastro Piadas</title>
 </head>
 <body>
-    <form th:action="@{/piadas/salvar}" method="post" th:object="${piada}">
+    <form th:action="${piada.id == null} ? @{/piadas/salvar} : @{/piadas/atualizar}" method="post" th:object="${piada}">
         <input type="text" th:field="*{descricao}" id="descricao" required>
         <input type="text" th:field="*{resposta}" id="resposta">
         <input type="checkbox" th:field="*{possuiResposta}" id="possuiresposta">
+        <input type="hidden" th:field="*{id}" id="id">
         <button type="submit">Salvar</button>
     </form>
 </body>

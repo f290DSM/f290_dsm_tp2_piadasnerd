@@ -45,10 +45,10 @@ public class PiadaController {
     }
 
     @GetMapping("/editar/{id}")
-    public String preEdicao(@PathVariable("id") Integer id, ModelMap modelMap) {
+    public String preEdicao(@PathVariable("id") Integer id, Model model) {
         Piada piada = service.buscarPorId(id);
-        modelMap.addAttribute("piada", piada);
-        return "/criar";
+        model.addAttribute("piada", piada);
+        return "cadastro";
     }
 
     @GetMapping("/excluir/{id}")

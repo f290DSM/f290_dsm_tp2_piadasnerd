@@ -26,6 +26,7 @@ public class Piada {
         this.resposta = resposta;
         this.possuiResposta = possuiResposta;
     }
+    
     public String getDescricao() {
         return descricao;
     }
@@ -47,6 +48,12 @@ public class Piada {
     @Override
     public String toString() {
         return "Piada [descricao=" + descricao + ", resposta=" + resposta + ", possuiResposta=" + possuiResposta + "]";
+    }
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }
