@@ -9,12 +9,29 @@
 <body>
     <section class="container-fluid" layout:fragment="corpo">
         <h1>Piadas Nerd: TP-II</h1>
-        <div th:each="piada : ${piadas}">
+        <div th:if="${piadas.size() > 0}" th:each="piada : ${piadas}">
             <details>
                 <summary th:text="${piada.descricao}"></summary>
-                <p th:text="${piada.resposta}"></p>
+                <table>
+                    <tr>
+                        <td>
+                            <span th:text="${piada.resposta}"></span>
+                        </td>
+                        <td>
+                            <a th:href="@{/piadas/editar/{id} (id = ${piada.id})}" class="btn btn-warning btn-sm mx-3">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/piadas/excluir/{id} (id = ${piada.id})}" class="btn btn-danger btn-sm">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
             </details>
         </div>
+        <div th:if="${piadas.size() == 0}" class="alert alert-warning">Ainda não existem piadas criadas.</div>
     </section>
 </body>
 

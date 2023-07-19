@@ -53,7 +53,7 @@ public class PiadaController {
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable("id") Integer id) {
         service.excluir(id);
-        return "/piadas/criar";
+        return "redirect:/piadas";
     }
 
     @PostMapping("/buscar")

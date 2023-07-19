@@ -1,6 +1,5 @@
 package br.com.fatecararas.f290_dsm_tp2_piadasnerd.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
